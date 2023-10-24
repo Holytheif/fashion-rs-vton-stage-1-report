@@ -1,10 +1,43 @@
 \chapter{INTRODUCTION}
 
 \section{Details of project work}
-	In the dynamic world of e-commerce, the advent of online clothing shopping has ushered in a new era of convenience, offering consumers an expansive array of fashion choices at their fingertips. This digital transformation has enriched the shopping experience, allowing people to explore styles and trends from the comfort of their own homes. However, amidst the convenience and variety, a significant challenge looms large: the absence of the traditional "try-before-buy" component. The inability to physically try on clothing before making a purchase decision introduces a layer of uncertainty, which can be a daunting prospect for consumers. This uncertainty often leads to hesitant buying decisions, elevated return rates, and ultimately, dissatisfaction among online shoppers.
+	This project comprises several interconnected components, each contributing to a seamless and immersive experience. Our work is has two main goals. One is to focus on the development of a recommendation system using collaborative and content-based filtering algorithms to provide personalized clothing recommendations by considering user preferences, past history, clothing item compatibility, and outfit possibilities. And the other is to develop an AR-integrated virtual try-on system to offer real-time interactivity with clothing items. Throughout the project, we have to keep user experience in mind and develop a robust feedback mechanism to continually improve the generated results.
 
-	The "AI-Based Clothing Recommendation for Try Before Buy" project takes centre stage to confront this pressing issue head-on. By combining the capabilities of Artificial Intelligence (AI) and Augmented Reality (AR), our mission is to create a seamless junction between the digital and physical realms, empowering consumers to make confident and informed clothing choices while shopping online. This innovative approach is poised to revolutionise the online clothing shopping experience.
+\section{Objective}
+	This project's primary objective is to develop an AI-based clothing recommender and an integrated AR virtual try-on system. It aims to provide users with personalized clothing suggestions and a realistic virtual try-on experience.
 
-	Online clothing shopping presents multifaceted challenges for consumers. The inability to physically touch, try on, and assess garments before making a purchase decision generates an array of uncertainties. Shoppers grapple with perpetual uncertainty, unsure whether their selected item will meet their style and fit expectations, leading to hesitancy in making online clothing purchases. This uncertainty, coupled with the variance in sizing and style preferences across brands, often results in high return rates in the e-commerce sector, which significantly impact both customers and retailers. Consumers frequently order multiple sizes or styles of the same item to secure the best fit, leading to additional expenses and environmental waste through unnecessary returns. Furthermore, the absence of a genuine try-on experience can erode overall customer satisfaction, potentially undermining brand loyalty.
+\section{Scope}
+	The scope of this project is as follows:
 
-	The "AI-Based Clothing Recommendation for Try Before Buy" project is positioned to mitigate these challenges by introducing an advanced recommendation system, surpassing traditional suggestions by understanding individual preferences and providing a sophisticated Augmented Reality (AR) try-on experience. This innovative approach empowers users to visualise and evaluate how clothing items align with their style, size, and fit in real-time, thereby bridging the gap between online and in-store shopping experiences.
+	\begin{enumerate}
+		\item \textbf{Fashion embedding:} Fashion embedding is a pivotal component, serving as the foundation for further tasks.
+			\begin{enumerate}
+				\item \textit{High-dimensional representation:} The project will transform clothing items into high-dimensional representations in a latent space. Each item will be associated with a vector that encodes its unique features and attributes.
+				\item \textit{Recommendation:} These fashion embeddings will play a fundamental role in the recommendation system. They will enable the model to identify similarities and compatibilities between items, effectively suggesting products based on user preferences and past interactions. Recommendations will be made by locating items with embeddings closely aligned with the user's preferences.
+				\item \textit{Retrieval:} The fashion embeddings will facilitate efficient and accurate retrieval of items. Users will be able to search for specific items or styles by querying the embedded space, and the system will quickly locate relevant matches.
+				\item \textit{Semantic understanding:} The high-dimensional embeddings will capture the semantic meaning and context of fashion items, going beyond visual features. This means that items with similar semantic attributes can be effectively grouped together.
+			\end{enumerate}
+		\item \textbf{Feature extractor:} Use deep learning to train a feature extractor which can segment parts of the upper body to provide user features for attribute-based recommendations, and to detect rendering regions for virtual try-on.
+		\item \textbf{AI-based recommender:} Design and deploy a recommendation system that utilizes collaborative and content-based filtering to generate personalized clothing recommendations.
+			\begin{enumerate}
+				\item \textit{Train with body dimensions:} Fine-tune system to take into account various body dimensions, such as waist size, chest measurements, and height.
+				\item \textit{Recommendations tailored to physique:} Provide clothing recommendations suitable for lean to average body sizes of average body length. Offer suggestions that are not only stylish but also appropriately sized.
+			\end{enumerate}
+		\item \textbf{AR virtual try-on:} Develop an AR-based virtual try-on system that allows users to visualize and interact with clothing items in real-time.
+			\begin{enumerate}
+				\item \textit{Dynamic and responsive:} Design a dynamic and responsive system with which users can try on multiple clothing items and evaluate them one by one.
+				\item \textit{Device compatibility:} Ensure system is compatible with a range of devices, including smartphones, tablets, and desktops, making it accessible to a wide user base.
+				\item \textit{User-Friendly Interface:} Design an user interface which is intuitive and user-friendly, ensuring that users can easily navigate and interact with the virtual try-on features.
+			\end{enumerate}
+	\end{enumerate}
+
+\section{Motivation}
+	Our motivations for this project are as follows:
+
+	\begin{enumerate}
+		\item \textbf{Reduce decision paralysis:} Online shoppers face an overwhelming array of clothing choices, often leading to hesitation and indecision. The abundance of options can make it challenging for users to make confident purchasing decisions, resulting in abandoned shopping carts and high return rates. Our primary motivation is to reduce this decision paralysis and make the process easier for the user by providing personalized recommendations.
+		\item \textbf{Enhance online shopping experience:} The inability to try on garments before purchase has long been a pain point for consumers. Many potential buyers grapple with concerns about how garments will look on their bodies. This uncertainty can hinder their ability to make informed purchasing decisions and ultimately affect their overall satisfaction with the shopping process. We aim to enhance this experience with a real-time virtual try-on system.
+		\item \textbf{Reduce environmental impact:} The issue of high return rates in e-commerce, particularly in the fashion sector, has far-reaching environmental consequences. Consumers often resort to ordering multiple sizes or styles of the same item, leading to excess packaging waste and unnecessary transportation emissions associated with product returns. We are motivated by the opportunity to reduce this environmental impact by offering a solution that minimizes the need for multiple orders and returns.
+		\item \textbf{Adopt customer-centric approach:} A strong motivation for this project is a commitment to a customer-centric approach. We believe that every technological advancement and innovation should ultimately serve the needs and desires of consumers. The motivation is to create a solution that places users at the centre of the online shopping experience, giving them the tools and information they need to make choices that reflect their individuality and preferences.
+		\item \textbf{Advance technological innovation:} The motivations for this project are aligned with the pursuit of technological innovation. We recognize that AI and AR are two of the most exciting and transformative technologies of our time. Their potential to reshape industries and improve people's lives is vast. Our motivation is to harness the power of these technologies and demonstrate their real-world applications in the e-commerce fashion sector.
+	\end{enumerate}
