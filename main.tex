@@ -23,11 +23,14 @@
     pdfkeywords={AI, AR, computer vision, deep learning, fashion recommendation, virtual try-on},
 	hidelinks
 ]{hyperref}
+\usepackage[numbers,sort]{natbib}
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,decorations,automata,backgrounds,petri}
+\usepackage{amsmath,amssymb,amsfonts}
 \usepackage[left=1.55in,right=1in,top=1in,bottom=1in]{geometry}
 \usepackage{titlesec}
-\usepackage{tabularx}
+\usepackage{tabularx,booktabs}
+\usepackage{numprint}
 \usepackage{fancybox}
 \usepackage[nottoc,notlot,notlof,numbib]{tocbibind}
 \usepackage[titletoc]{appendix}
@@ -60,6 +63,11 @@
 			Vivek Tiwari \hspace{25mm} & (3460) \\
 		\end{tabular}
 	\end{table}
+}
+
+\newcommand{\lithead}[3][]{
+	\ifthenelse{\equal{#1}{}}{\citeauthor{#2}}{#1}
+	\cite{#2}\ifthenelse{\equal{#3}{}}{.}{ #3}
 }
 
 \begin{document}
@@ -100,5 +108,15 @@
 	{\normalfont\bfseries\large}{\thesubsection}{1em}{}
 
 	\include{components/1-intro.tex}
+	\include{components/2-survey.tex}
+
+	\bibliographystyle{IEEEtranN.bst}
+	\bibliography{
+		components/refs/settings.bib,
+		components/refs/intro.bib,
+		components/refs/rs.bib,
+		components/refs/vton.bib,
+		components/refs/datasets.bib
+	}
 
 \end{document}
