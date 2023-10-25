@@ -95,6 +95,12 @@
 
 	\tableofcontents
 
+	{
+		\listoffigures
+		\let\clearpage\relax
+		\listoftables
+	}
+
 	\mainmatter
 
 	\titleformat{\chapter}[display]
@@ -110,6 +116,10 @@
 	\include{components/1-intro.tex}
 	\include{components/2-survey.tex}
 	\include{components/3-req.tex}
+	\include{components/4-algorithms.tex}
+	\include{components/5-design.tex}
+	\include{components/6-planning.tex}
+	\include{components/7-conclusion.tex}
 
 	\bibliographystyle{IEEEtranN.bst}
 	\bibliography{
@@ -120,5 +130,4 @@
 		components/refs/datasets.bib,
 		components/refs/req.bib
 	}
-
 \end{document}

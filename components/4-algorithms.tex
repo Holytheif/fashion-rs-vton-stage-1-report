@@ -1,0 +1,47 @@
+\chapter{ALGORITHM ANALYSIS AND MATHEMATICAL MODELING}
+
+\section{Convolutional Neural Networks}
+	CNNs play a crucial role in this project, specifically in enhancing the analysis and understanding of clothing images and the user's body. They can be used for the following tasks:
+
+	\begin{enumerate}
+		\item \textbf{Visual analysis of clothing items:} CNNs are employed to analyze and extract visual features from images of clothing items. This process enables the system to understand the style, design, color, and other visual attributes of each garment.
+		\item \textbf{Feature extraction:} CNNs extract high-level features from clothing images, allowing the system to identify patterns, textures, and details in the garments. This feature extraction aids in the matching of user preferences with visually similar items. Further, they can be used for feature extraction from the user's image, to learn about body attributes.
+		\item \textbf{Visual compatibility assessment:} CNNs can be utilized to assess the visual compatibility of clothing combinations, helping users put together stylish outfits. This ensures that the virtual try-on experience reflects real-world fashion sensibilities.
+	\end{enumerate}
+
+\section{Matrix Factorization}
+	Matrix factorization is a fundamental technique employed to model user-item interactions, extract latent factors, and generate personalized clothing recommendations. In this context, matrix factorization primarily focuses on the following aspects:
+
+	\begin{enumerate}
+		\item \textbf{User-item interaction matrix:} A user-item interaction matrix is constructed with users represented along one axis, and clothing items along the other axis. This matrix captures the historical interactions of users with clothing items, such as views, clicks, purchases, and preferences.
+		\item \textbf{Latent factor discovery:} Matrix factorization techniques are applied to decompose the user-item interaction matrix into two lower-dimensional matrices, one representing users' latent factors and the other representing items' latent factors. These latent factors capture unobservable characteristics of both users and clothing items. Users with similar tastes have similar latent factors, and clothing items with similar attributes have similar latent factors.
+		\item \textbf{Recommendation generation:} Once the latent factors are discovered, a recommendation engine can employ them to generate personalized recommendations. This is achieved by estimating missing entries in the interaction matrix, indicating which clothing items a user may be interested in. The engine ranks items based on these estimates and presents the top recommendations to the user.
+	\end{enumerate}
+
+\section{Bayesian Personalized Ranking}
+	BPR addresses a critical challenge in the realm of fashion e-commerce. It is used to optimize the ranking of clothing items within our recommendation system, ensuring that users are presented with items that align closely with their preferences and style. Here's how BPR can be applied:
+
+	\begin{enumerate}
+		\item \textbf{Personalized ranking:} BPR focuses on the individual preferences and interactions of users. It acknowledges that each user has unique tastes and that the success of a recommendation system lies in its ability to rank items according to these individual preferences.
+		\item \textbf{Implicit feedback:} BPR is particularly well-suited for scenarios where implicit feedback is abundant. In the fashion e-commerce domain, user interactions are often implicit, including clicks, views, and purchases. BPR leverages these implicit signals to understand user preferences, creating a ranking of items based on the likelihood of user engagement.
+	\end{enumerate}
+
+\section{Siamese and Triplet Networks}
+	Siamese and Triplet networks emerge as essential tools for enhancing the accuracy and quality of the recommendation and virtual try-on systems.
+
+	\subsection{Siamese Networks}
+		Siamese networks are fundamental for both the recommendation engine and virtual try-on systems. They can be employed to measure the similarity between user preferences and clothing items. By learning similarity metrics, the recommendation system can identify items that align with a user's unique style. Siamese networks enhance the ability to create personalized recommendations by assessing the closeness of user preferences and clothing features. In the virtual try-on system, Siamese networks play a pivotal role in assessing how well a selected clothing item fits and matches the user's style. By comparing the virtual try-on with the user's image, the network can provide real-time feedback on the fit, style, and overall suitability of the item.
+
+	\subsection{Triplet Networks}
+		Triplet networks can be used to create embeddings for clothing items, user profiles, and the user's virtual try-on. By learning triplets composed of an anchor item (selected clothing item), a positive item (a similar item that the user may like), and a negative item (a dissimilar item), the network can generate embeddings that capture the nuances of user preferences. This enables the system to recommend items that closely match the user's style and improve the virtual try-on experience.
+
+	In both Siamese and Triplet network applications, the focus is on creating robust embeddings and similarity metrics. These networks contribute to the project's core objectives of providing personalized clothing recommendations and an immersive virtual try-on experience, ultimately enhancing user engagement and satisfaction in online fashion retail.
+
+\section{Transformers}
+	Transformers, originally developed for natural language processing tasks, have proven to be versatile and valuable in various domains, including computer vision and recommendation systems. Transformers can be utilized in the following ways:
+
+	\begin{enumerate}
+		\item \textbf{Textual data analysis:} Transformers can be used to analyze textual data associated with clothing items, such as product descriptions, customer reviews, and style attributes. By understanding the semantics and context of these descriptions, Transformers enhance the recommendation system's ability to capture the fine-grained details of clothing items.
+		\item \textbf{Multimodal representations:} Transformers are used to create multimodal embeddings that relate both textual and visual features of clothing items. These embeddings capture a holistic view of fashion items by integrating information from both text and images. The resulting embeddings are valuable for recommendation accuracy.
+		\item \textbf{Augmented reality enhancement:} In the virtual try-on component, Transformers help in image recognition, style matching, and visual understanding. They optimize the overlay of digital clothing items on users' images, ensuring a realistic and visually appealing virtual try-on experience.
+	\end{enumerate}

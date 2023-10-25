@@ -84,18 +84,6 @@
 		The operating environment of our project is as follows:
 
 		\begin{enumerate}
-			\item \textbf{Hardware requirements:}
-				\begin{itemize}
-					\item \textit{User devices:} The project is intended to work on a range of user devices like smartphones, tablets, laptops, and desktop computers.
-					\item \textit{Cameras and sensors:} Devices should have integrated or attachable cameras and sensors capable of capturing user images and surroundings for the virtual try-on feature.
-					\item \textit{CPU:} Any modern multi-core processor with a clock speed of at least 2.5 GHz.
-					\item \textit{GPU:}
-						\begin{itemize}
-							\item Training requirement: A video-card with minimum 8GB VRAM for deep learning tasks.
-							\item End-user inference requirement: Any GPU which supports Vulkan APIs.
-						\end{itemize}
-					\item \textit{Internet connectivity:} A stable internet connection is essential for real-time communication with the server, image processing, and rendering of AR elements.
-				\end{itemize}
 			\item \textbf{Software requirements:}
 				\begin{itemize}
 					\item \textit{Operating system:} The target end-user operating system may be any of the following platforms which support the ONNX Runtime \cite{onnxruntimeCompatibility}:
@@ -110,9 +98,21 @@
 					\item \textit{AR framework:} A robust AR framework such as AR.js for web-based AR experiences, should be integrated.
 					\item \textit{Database management:} The project requires a database management system for user profiles, clothing item information, and preference data. Document-based NoSQL options like Apache Cassandra can be considered.
 					\item \textit{Programming languages and libraries:} Development will involve languages like Python and JavaScript, and frameworks like PyTorch and Huggingface Transformers and Optimum for machine learning tasks.
-					\item \textit{Machine learning inference:} A cross-platform machine learning runtime like ONNX Runtime \cite{onnxruntimeONNXRuntime} which supports the ONNX format \cite{onnxONNXHome}, an open standard for machine learning interoperability.
+					\item \textit{Machine learning inference:} A cross-platform machine learning runtime like ONNX Runtime which supports the ONNX format, an open standard for machine learning interoperability.
 					\item \textit{Web development stack:} For web-based interfaces, a stack including HTML, CSS, JavaScript, and backend frameworks like Node.js and Express will be employed.
 				\end{itemize}
+			\item \textbf{Hardware requirements:}
+			\begin{itemize}
+				\item \textit{User devices:} The project is intended to work on a range of user devices like smartphones, tablets, laptops, and desktop computers.
+				\item \textit{Cameras and sensors:} Devices should have integrated or attachable cameras and sensors capable of capturing user images and surroundings for the virtual try-on feature.
+				\item \textit{CPU:} Any modern multi-core processor with a clock speed of at least 2.5 GHz.
+				\item \textit{GPU:}
+					\begin{itemize}
+						\item Training requirement: A video-card with minimum 8GB VRAM for deep learning tasks.
+						\item End-user inference requirement: Any GPU which supports Vulkan APIs.
+					\end{itemize}
+				\item \textit{Internet connectivity:} A stable internet connection is essential for real-time communication with the server, image processing, and rendering of AR elements.
+			\end{itemize}
 		\end{enumerate}
 	
 	\subsection{Design Philosophies}
