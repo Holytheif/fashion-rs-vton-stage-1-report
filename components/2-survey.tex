@@ -22,6 +22,92 @@
 			\item \textbf{Explainable recommendation:} An explanation clarifies why something was recommended to the user. Explanations are more transparent than black-box recommendations and improve the user experience in a variety of ways. They enhance user trust and understanding, lead to error detection and correction, mitigate bias and promote fairness, and increase user engagement. In recent years, more work has been done on explainable fashion recommendation \cite{DBLP:journals/tomccap/YangSFWDN21, DBLP:journals/www/LiCH21, 9522737, DBLP:journals/tkde/LinRCRMR20, DBLP:conf/wacv/TangsengO20, DBLP:conf/ijcai/HouWCLZL19, DBLP:conf/sigir/ChenCXZ0QZ19}.
 		\end{enumerate}
 		
+		\newcommand{\checkif}[1]{
+			\ifthenelse{\equal{#1}{Y}}{\checkmark}{}
+		}
+		\newcommand{\rsrow}[8]{
+			\citeauthor{#1} \cite{#1} & #2 &
+			\checkif{#3} &
+			\checkif{#4} &
+			\checkif{#6} &
+			\checkif{#8}
+			\\ \hline
+		}
+
+		\begin{table*}[h!]
+			\caption{Fashion Recommendation Systems}
+			\label{table:rs}
+			\renewcommand{\arraystretch}{1.5}
+			\scriptsize
+			\begin{tabularx}{\textwidth}{
+				p{2cm} | X |
+				>{\centering\arraybackslash}p{1.35cm} |
+				>{\centering\arraybackslash}p{1.6cm} |
+				>{\centering\arraybackslash}p{1.75cm} |
+				>{\centering\arraybackslash}p{1.75cm}
+			}
+				\hline
+					\textbf{Authors} &
+					\textbf{Technique(s)} &
+					\multicolumn{2}{c|}{\textbf{User Inputs}} &
+					\textbf{Outfit Generation} &
+					\textbf{Personalized} \\
+					& &
+					Body Attributes & Interactions\footnotemark[1] & & \\
+				\hline \hline
+					\rsrow{DBLP:journals/eswa/MoZPW23}{
+						Transformer $\rightarrow$ Transformer
+					}{Y}{}{Y}{Y}{}{Y}
+					\rsrow{10049142}{
+						Contextual Attention Network
+					}{}{}{Y}{Y}{}{}
+					\rsrow{DBLP:journals/eswa/BalimO23}{
+						CNN $\rightarrow$ LSTM + Transformer
+					}{}{Y}{Y}{}{Y}{}
+					\rsrow{9857004}{
+						Triplet Network
+					}{}{}{Y}{Y}{}{}
+					\rsrow{9893574}{
+						Bi-LSTM, GAN
+					}{}{}{Y}{Y}{}{}
+					\rsrow{9775146}{
+						Bi-LSTM
+					}{}{}{Y}{Y}{}{}
+					\rsrow{DBLP:journals/tomccap/YangSFWDN21}{
+						Representation Learning
+					}{}{Y}{Y}{Y}{Y}{}
+					\rsrow{DBLP:conf/iccvw/KimSMSSP21}{
+						CNN + Projection Head
+					}{}{}{Y}{Y}{}{}
+					\rsrow{9156535}{
+						CNN + Triplet Network
+					}{}{}{Y}{Y}{}{}
+					\rsrow{DBLP:conf/sigir/DongWSDN20}{
+						Bi-LSTM
+					}{}{}{Y}{Y}{}{}
+					\rsrow{DBLP:journals/ijon/SunHWZP20}{
+						LSTM + Triplet Network
+					}{}{}{Y}{Y}{}{}
+					\rsrow{9156794}{
+						CNN $\rightarrow$ Joint Embedding
+					}{Y}{}{Y}{Y}{Y}{Y}
+					\rsrow{DBLP:conf/sigir/LiW0CXC20}{
+						Heirarchical Graph Network
+					}{}{}{Y}{Y}{}{}
+					\rsrow{DBLP:journals/corr/abs-2005-06584}{
+						Relational Network + VSE
+					}{}{}{Y}{Y}{}{}
+					\rsrow{DBLP:conf/kdd/ChenHXGGSLPZZ19}{
+						BPR + CNN $\rightarrow$ Transformer
+					}{}{Y}{Y}{Y}{}{Y}
+					\rsrow{DBLP:conf/mm/SongHLCXN19}{
+						CNN + TextCNN
+					}{}{Y}{Y}{Y}{}{Y}
+				\addlinespace
+				\multicolumn{6}{l}{\textit{\footnotemark[1] Purchase data, comments, ratings, reviews}}
+			\end{tabularx}
+		\end{table*}
+		
 	\subsection{Recent works}
 		Approaches from recent literature on clothing and fashion recommendation systems are explored below. They all claim to outperform state-of-the-art methods \cite{DBLP:conf/aaai/HeM16, DBLP:conf/sigir/LiuWW17, DBLP:conf/icdm/KangFWM17, DBLP:conf/sigir/ChenZ0NLC17} and present novel ideas for tackling the task.
 
@@ -375,6 +461,44 @@
 		\lithead{DBLP:journals/sensors/BattistoniGRSVB22}{
 			explore the role of AR as meta-user interface. It also covers a case study on focus group that validates design patterns, providing insights for improvements.
 		}
+		
+		\newcommand{\commrow}[3]{
+			#2 & \cite{#1} & #3 \\ \addlinespace
+		}
+
+		\newlength{\limwidth}
+		\setlength{\limwidth}{7cm}
+
+		\begin{table}[h]
+			\caption{Commercial virtual try-on}
+			\label{table:commercial-vton}
+			\begin{tabularx}{\textwidth}{
+				>{\raggedleft\arraybackslash}p{1cm}
+				X
+				p{\limwidth}
+			}
+				\toprule
+					\textbf{Tech.} &
+					\textbf{Item type} &
+					\textbf{Limitations} \\
+				\midrule
+					\textbf{2D} & Clothing \& Accessories & \multirow{4}{\limwidth}{\justifying AI-generated variations of models wearing garments are not true representations of the user trying on the garment.} \\
+					& \cite{WalmartA, WalmartB, GoogleShopping} & \\
+					& & \\
+					& & \\
+				\midrule
+					\textbf{AR} & Clothing \& Accessories \cite{Snapchat} & \multirow{3}{\limwidth}{\justifying Most implementations only focus on accessories instead of actual clothing items.} \\
+					& Clothing \cite{Zalando} & \\
+					& Wrist Watches \cite{BaumeMercier} & \\
+					& Eyewear \cite{WarbyParker} & \\
+					& Makeup \cite{YTAR} & \\
+					& Makeup \cite{LOreal} & \\
+				\bottomrule
+			\end{tabularx}
+		\end{table}
+
+	\subsection{Commercial uses of virtual try-on}
+		Companies are also using virtual try-on systems to provide enhanced experience to customers. Table \ref{table:commercial-vton} lists the various commercially available virtual try-on platforms.
 
 \section{Datasets and evaluation metrics}
 	\subsection{Datasets}
@@ -522,6 +646,8 @@
 				\item \textit{Stability} assesses the stability of virtual objects as users move or interact with the environment. Stable objects provide a more convincing AR experience.
 				\item \textit{Localization Accuracy} measures how accurately the AR system can determine the user's position and orientation in the real world, essential for precise object placement.
 			\end{enumerate}
+
+	\nocite{stocker2021new, DBLP:journals/csur/ChengSCHL21, Jain_Wah_2022, DBLP:journals/corr/abs-2202-02757, DBLP:journals/sncs/ShirkhaniMSH23, DBLP:journals/corr/abs-2111-00905, DBLP:journals/mta/GhodhbaniNRA22, DBLP:journals/cvm/LiangL21, menon2020impact, jayamini2021use, DBLP:journals/corr/abs-2202-09450, huang2019enhancing, mehta2020enhancement, zak2020augmented, caboni2019augmented, DBLP:journals/access/GiriJZB19, DBLP:journals/corr/abs-2105-03050, DBLP:journals/access/GuoZLCCW23, DBLP:journals/spm/ChenSC23, sahni2021review, liang2020implementation, sareen2022ai, 10153335, DBLP:journals/tmm/Yan0LZX0Y23}
 
 \section{Proposed System}
 	The proposed system represents a pioneering and transformative approach to online clothing shopping, leveraging the power of AI and AR to provide a seamless and immersive try-before-buy experience. At its core, the system is engineered to overcome the challenges inherent in the online fashion retail sector, including uncertainties related to clothing fit, style suitability, and the absence of a physical try-on opportunity. This proposed system consists of a set of cutting-edge components and features that collectively redefine the online shopping landscape:

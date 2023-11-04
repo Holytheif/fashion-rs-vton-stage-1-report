@@ -1,4 +1,4 @@
-% region frontmatter
+% region preamble
 \documentclass[oneside,openany,a4paper,12pt]{book}
 
 \usepackage{fancyhdr}
@@ -12,6 +12,7 @@
 \cfoot{}
 \rfoot{}
 
+\usepackage[hyphens]{url}
 \usepackage[
 	pdfauthor={Risabh Rai, Uday Bhanu Bose, Vipin Kumar Yadav, and Vivek Tiwari},
 	pdftitle={Project Stage-I Report},
@@ -25,7 +26,7 @@
 \usetikzlibrary{arrows,shapes,decorations,automata,backgrounds,petri}
 \usepackage{fancybox}
 \usepackage{amsmath,amssymb,amsfonts}
-\usepackage{tabularx,booktabs}
+\usepackage{tabularx,booktabs,ragged2e}
 \usepackage{numprint}
 \usepackage{svg}
 
@@ -45,6 +46,8 @@
 \usepackage{multirow}
 
 \usepackage[ruled,vlined]{algorithm2e}
+
+\usepackage{ieeetrantools}
 
 % endregion
 
@@ -71,6 +74,7 @@
 }
 
 \begin{document}
+	\bstctlcite{BSTSettings}
 
 	\include{components/front.tex}
 	\include{components/certificate.tex}
@@ -121,7 +125,7 @@
 	\include{components/6-planning.tex}
 	\include{components/7-conclusion.tex}
 
-	\bibliographystyle{IEEEtranN.bst}
+	\bibliographystyle{IEEEtranN}
 	\bibliography{
 		components/refs/settings.bib,
 		components/refs/intro.bib,
