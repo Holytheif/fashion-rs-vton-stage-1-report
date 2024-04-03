@@ -4,7 +4,7 @@
 	This project aims to empower users to make informed fashion choices and enhance their online shopping experience by seamlessly integrating AI algorithms for clothing recommendations and virtual try-on technology. In an era where online shopping dominates, our system seeks to empower consumers with a personalized shopping experience.
 
 	\subsection{Purpose}
-		The main goals of this project are to elevate the online shopping experience of customers by using AI to provide them with personalized clothing recommendations and AR virtual try-on, to reduce uncertainty associated with online purchases and by extension, reduce item return rates.
+        The main goals of this project are to elevate the online shopping experience of customers by using AI to provide them with personalized clothing recommendations and image synthesis-based virtual try-on, to reduce uncertainty associated with online purchases and by extension, reduce item return rates.
 
 	\subsection{Project Scope}
 		The project has the following scope:
@@ -23,7 +23,7 @@
 					\item \textit{Train with body dimensions:} Fine-tune system to take into account various body dimensions, such as waist size, chest measurements, and height.
 					\item \textit{Recommendations tailored to physique:} Provide clothing recommendations suitable for lean to average body sizes of average body length. Offer suggestions that are not only stylish but also appropriately sized.
 				\end{enumerate}
-			\item \textbf{AR virtual try-on:} Develop an AR-based virtual try-on system that allows users to visualize and interact with clothing items in real-time.
+			\item \textbf{Image-synthesis virtual try-on:} Develop an image synthesis-based virtual try-on system that allows users to visualize and interact with clothing items in real-time.
 				\begin{enumerate}
 					\item \textit{Dynamic and responsive:} Design a dynamic and responsive system with which users can try on multiple clothing items and evaluate them one by one.
 					\item \textit{Device compatibility:} Ensure system is compatible with a range of devices, including smartphones, tablets, and desktops, making it accessible to a wide user base.
@@ -33,7 +33,7 @@
 
 \section{Overall Description}
 	\subsection{Product Perspective}
-		Our project operates within the context of the broader e-commerce and fashion retail landscape. It aims to integrate with e-commerce platforms, acting as an enhancement to the shopping experience. This system augments traditional online shopping by providing intelligent clothing recommendations and a virtual try-on feature. It does not replace or compete with e-commerce platforms but complements their functionality, aiming to boost user engagement and sales. By focusing on user experience, the project seeks to align with the goals of e-commerce businesses, creating a symbiotic relationship that benefits both consumers and retailers.
+		Our project operates within the context of the broader e-commerce and fashion retail landscape. It aims to integrate with e-commerce platforms, acting as an enhancement to the shopping experience. This system enables traditional online shopping by providing intelligent clothing recommendations and a virtual try-on feature. It does not replace or compete with e-commerce platforms but complements their functionality, aiming to boost user engagement and sales. By focusing on user experience, the project seeks to align with the goals of e-commerce businesses, creating a symbiotic relationship that benefits both consumers and retailers.
 	
 	\subsection{Product Functions}
 		The project has the following product functions:
@@ -42,7 +42,7 @@
 			\item \textbf{User profiles:} Users can create accounts and profiles, providing personal information, style preferences, and body measurements. Profiles are used to tailor clothing recommendations to individual user preferences.
 			\item \textbf{Clothing recommender:} Utilizes AI algorithms to analyze user data and style preferences and generates personalized clothing recommendations based on the user's profile.
 			\item \textbf{Search and browsing:} Allows users to search for clothing items or browse through a selection of recommended items. Filters, sorting options, and search functionality enhance the browsing experience.
-			\item \textbf{Virtual try-On:} Employs augmented reality (AR) technology to enable users to virtually try on clothing items. Overlays selected garments on the user's real-time image or avatar to visualize fit and appearance. Supports various angles and poses to ensure an accurate representation.
+			\item \textbf{Virtual try-On:} Employs image synthesis technology to enable users to virtually try on clothing items. Generates realistic images of the user wearing selected garments to visualize fit and appearance. Supports various angles and poses to ensure an accurate representation.
 			\item \textbf{User feedback:} Allows users to rate and review purchased items. Collects valuable feedback to improve the recommendation system.
 		\end{enumerate}
 
@@ -94,7 +94,7 @@
 							\item iOS 12+
 						\end{itemize}
 					\item \textit{Web browsers:} It should be accessible through popular web browsers like Google Chrome, Mozilla Firefox, Safari, and Microsoft Edge for web-based interfaces.
-					\item \textit{AR framework:} A robust AR framework such as AR.js for web-based AR experiences, should be integrated.
+					\item \textit{Image Synthesis framework:} A robust image synthesis framework, such as TensorFlow.js, for web-based image synthesis experiences, should be integrated.
 					\item \textit{Database management:} The project requires a database management system for user profiles, clothing item information, and preference data. Document-based NoSQL options like Apache Cassandra can be considered.
 					\item \textit{Programming languages and libraries:} Development will involve languages like Python and JavaScript, and frameworks like PyTorch and Huggingface Transformers and Optimum for machine learning tasks.
 					\item \textit{Machine learning inference:} A cross-platform machine learning runtime like ONNX Runtime which supports the ONNX format, an open standard for machine learning interoperability.
@@ -110,7 +110,7 @@
 						\item Training requirement: A video-card with minimum 8GB VRAM for deep learning tasks.
 						\item End-user inference requirement: Any GPU which supports Vulkan APIs.
 					\end{itemize}
-				\item \textit{Internet connectivity:} A stable internet connection is essential for real-time communication with the server, image processing, and rendering of AR elements.
+				\item \textit{Internet connectivity:} A stable internet connection is essential for real-time communication with the server and image processing.
 			\end{itemize}
 		\end{enumerate}
 	
@@ -134,17 +134,17 @@
 			\item \textbf{Data Privacy and Compliance:} The project must adhere to strict data privacy regulations. This imposes constraints on how user data is collected, stored, and utilized.
 			\item \textbf{Resource Limitations:} The project will operate within resource constraints, including budget and available hardware resources, which may affect the system's scalability and performance.
 			\item \textbf{Technological Compatibility:} The system must work across a wide range of devices and platforms, which presents constraints related to compatibility and performance optimization.
-			\item \textbf{User Connectivity:} User experience may be affected by the quality of the user's internet connection, especially when utilizing the augmented reality feature. Ensuring a functional experience even in low-bandwidth situations is a constraint.
+			\item \textbf{User Connectivity:} User experience may be affected by the quality of the user's internet connection, especially when utilizing the image synthesis-based try-on feature. Ensuring a functional experience even in low-bandwidth situations is a constraint.
 		\end{enumerate}
 
 \section{External Interface Requirements}
 	\subsection{User Interfaces}
 		The primary user interface will be web-based and accessible via standard web browsers. It should be compatible with popular web browsers, including but not limited to Google Chrome, Mozilla Firefox, Microsoft Edge, and Safari. The user interface should be responsive, adapting to various screen sizes, including desktops, tablets, and mobile devices.
 
-		The virtual try-on interface relies on AR and should be compatible with most devices. It must support features such as real-time clothing overlay and interactive controls for users to try on clothing items seamlessly.
+		The virtual try-on interface relies on image synthesis and should be compatible with most devices. It must support features such as real-time clothing overlay and interactive controls for users to try on clothing items seamlessly.
 	
 	\subsection{Hardware Interfaces}
-		The virtual try-on feature requires the use of cameras and sensors. Our system should interface with these devices to capture images and detect user movements for an immersive AR experience. These interfaces should be compatible with a range of devices.
+		The virtual try-on feature requires the use of cameras and sensors. Our system should interface with these devices to capture images and detect user movements for an immersive image synthesis-based experience. These interfaces should be compatible with a range of devices.
 
 	\subsection{Software Interfaces}
 		\subsubsection{Clothing Recommendation Interface}
@@ -157,15 +157,15 @@
 				\item The interface should allow for updates to the recommendation algorithm without affecting core system functionality.
 			\end{enumerate}
 		
-		\subsubsection{AR Virtual Try-On Interface}
-			The system will interface with an AR module for virtual clothing try-on to enable users to visualize clothing items on themselves in real-time.
+		\subsubsection{Image-synthesis Virtual Try-On Interface}
+            The system will interface with an image synthesis module for virtual clothing try-on to enable users to visualize clothing items on themselves in real-time.
 
 			Requirements:
 			\begin{enumerate}
-				\item The AR module must support 3D model rendering of clothing items on user images.
+				\item The synthesis module must support rendering of clothing items on user images.
 				\item It should provide accurate real-time visualization.
-				\item The system should send data about selected clothing items to the AR module for rendering.
-				\item The AR module should return rendered images or video streams of users with clothing items superimposed.
+				\item The system should send data about selected clothing items to the synthesis module for rendering.
+				\item The synthesis module should return rendered images of users with clothing items superimposed.
 			\end{enumerate}
 
 		\subsubsection{User Profile and Preferences Data Interface}
@@ -180,7 +180,7 @@
 
 \section{Other Nonfunctional Requirements}
 	\subsection{Performance Requirements}
-		The system should be able to read and understand the human body and be able to parse the areas of interests, generate outfit accordingly and finally, render the subject in real-time through augmented reality.
+        The system should be able to read and understand the human body and parse the areas of interest, generate outfits accordingly, and finally, render the subject in real-time through image synthesis.
 		
 		\subsubsection{Resource utilization}
 			For the system to be compatible with majority devices including low powered mobiles and tablets, the resource utilization should be kept to minimum without affecting the quality of output.
@@ -201,7 +201,7 @@
 	\subsection{Acceptance Criteria}
 		Give the scenario where the user has selected certain clothes according to their preferences and is expecting the system to generate the outfit on their body so that they can judge the style and the overall look of the outfit, the user lets the camera record their body. Both the subject body features and generated recommendations are input for the system.
 
-		When the user selects generate outfit option after selection of styles recommended or chosen by himself/herself. The system segments the features from the subject and tries to wrap the outfit around them. If the system is well trained on personalized recommendation and virtual try-on, the system successfully generates the outfit personalized to the subject and provides the rendered view in augmented reality.
+		When the user selects the "generate outfit" option after selecting styles recommended or chosen by themselves, the system segments the features from the subject and attempts to wrap the outfit around them. If the system is well-trained on personalized recommendation and image synthesis-based virtual try-on, it successfully generates the outfit personalized to the subject.
 
 	\subsection{Software Quality Attributes}
 		\begin{enumerate}

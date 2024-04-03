@@ -207,9 +207,9 @@
 					\end{enumerate}
 			\end{enumerate}
 
-\section{Virtual try-on}
-	Virtual try-On systems represent a cutting-edge fusion of technology and fashion retail, revolutionizing the way consumers interact with clothing online. These systems utilize artificial intelligence, computer vision, and augmented reality to simulate the experience of trying on clothing virtually. Users can see how garments fit, drape, and look on their own bodies without physically trying them on. From 2D image-based try-ons to advanced 3D models, these systems offer a range of immersive experiences.
-	
+\section{Virtual try-on}	
+    Virtual try-On systems represent a cutting-edge fusion of technology and fashion retail, revolutionizing the way consumers interact with clothing online. These systems utilize artificial intelligence, computer vision, and image synthesis to simulate the experience of trying on clothing virtually. Users can see how garments fit, drape, and look on their own bodies without physically trying them on. From 2D image-based try-ons to advanced 3D models, these systems offer a range of immersive experiences.
+        
 	The goal of virtual try-on is not only to enhance user confidence and satisfaction, but also to reduce return rates, making it a pivotal tool in modern e-commerce. It showcases the potential of technology to bridge the gap between digital and physical retail, offering consumers an engaging and informative way to make fashion choices online.
 
 	\subsection{Image-based (2D) virtual try-on}
@@ -415,52 +415,6 @@
 		\lithead[ClothFormer]{DBLP:conf/cvpr/JiangWYL22}{
 			generates realistic, harmonious, and spatio-temporally consistent try-on videos in complicated environments. It predicts dense flow mapping between body and clothing regions which addresses the challenge of generating accurate warping when occlusions appear in the clothing region.
 		}
-
-	\subsection{3D virtual try-on}
-		3D virtual try-on systems reconstruct 3D meshes of the person and clothing from the target images and then fit the clothing onto the person in attempts to generate a physically accurate 3D render.
-
-		\lithead[ULNeF]{DBLP:conf/wacv/MajithiaPBGSS22}{
-			allows for mix-and-match try-on, addressing the combinatorial complexity of mixing different garments. It works directly on implicit neural representations, which change the paradigm and pioneer new approaches in virtual try-on. However, it only explores garments in T-pose and lacks other variations.
-		}
-
-		The use of fixed topology parametric template mesh models by \lithead{DBLP:conf/nips/SantestebanOTC22}{
-			for known types of garments allows for easy mapping of high-quality texture from input catalog images to UV map panels. The proposed pipeline is compact and scalable which makes it suitable for practical implementation.
-		}
-
-	\subsection{Augmented reality try-on}
-		Augmented reality virtual try-on is the eventual goal of all try-on systems, integrating computer-generated imagery with real-world views, enabling users to virtually try on clothing and accessories in real-time.
-
-		The use of simple video dataset to successfully achieve transfer of clothing segmentation rather than using the DeepFashion dataset is proposed by \lithead{DBLP:conf/ieeehpcs/JongM19}{} But the use of short video datasets may limit dataset size and diversity.
-
-		\lithead{di2020comparative}{
-			proposes the use of four neural models: Fully Connected Neural Network, CNN, MobileNetV1 \cite{DBLP:journals/corr/HowardZCKWWAA17}, and MobileNetV2 \cite{DBLP:conf/cvpr/SandlerHZZC18}, to classify clothing images for computationally limited platforms on which augmented reality is often implemented.
-		}
-
-		\lithead{hashmi2020augmented}{
-			introduce a computationally inexpensive technique using web cam input and Haar cascade classifier \cite{DBLP:conf/cvpr/ViolaJ01} that helps avoid the use of costly kinect sensors. But the sample size used limits generalizability to broader populations. Also, Haar cascade classifier may have limitations in accurately detecting specific body parts, especially under varying lighting conditions and poses.
-		}
-
-		Providing the study of using AR to help online shoppers choose their correct size and help them choose the best option based upon various attributes Stimulus-Organism-Response model. \lithead{baytar2020evaluating}{
-			investigate how AR products are perceived by consumers but the limited dataset reduces the generalizability of the findings. Another limitation is that the garments were 2D and did not wrap around the body.
-		}
-
-		\lithead[AVATAR]{shaw2020advanced}{
-			Advanced Virtual Apparel Try using Augmented Reality (AVATAR) is capable of providing virtual apparel trial using AR. It provides a hardware solution using a multi-sensor body scanner for precise body coordinates. It also facilitates face color recognition, providing personalized apparel recommendations based on skin tone. But no insights about real-world implementation challenges are provided and no information regarding accuracy and reliability of sensors is discussed.
-		}
-
-		\lithead{ali2021augmented}{
-			explore the use of smartphone camera to provide 3d image of product using AR which provides real time AR by using a camera and YOLO for detection. But using YOLO introduces constraints on bounding box predictions, impacting small object detection and unusual configurations. Also, selective search in Faster R-CNN \cite{DBLP:journals/pami/RenHG017} can be time-consuming, affecting overall performance.
-		}
-
-		\lithead{feng2021personalized}{
-			propose the use of AR, Azure Kinect somatosensory, and OpenGL 3D rendering to provide virtual try on experience and enhance clothing customization.
-		} And \lithead{moriuchi2021engagement}{
-			provide an insight about use of chatbots and AR technology in e-commerce. But the included study based upon small sample size of 68 millennials may limit generalizability.
-		}
-
-		\lithead{DBLP:journals/sensors/BattistoniGRSVB22}{
-			explore the role of AR as meta-user interface. It also covers a case study on focus group that validates design patterns, providing insights for improvements.
-		}
 		
 		\newcommand{\commrow}[3]{
 			#2 & \cite{#1} & #3 \\ \addlinespace
@@ -486,13 +440,6 @@
 					& \cite{WalmartA, WalmartB, GoogleShopping} & \\
 					& & \\
 					& & \\
-				\midrule
-					\textbf{AR} & Clothing \& Accessories \cite{Snapchat} & \multirow{3}{\limwidth}{\justifying Most implementations only focus on accessories instead of actual clothing items.} \\
-					& Clothing \cite{Zalando} & \\
-					& Wrist Watches \cite{BaumeMercier} & \\
-					& Eyewear \cite{WarbyParker} & \\
-					& Makeup \cite{YTAR} & \\
-					& Makeup \cite{LOreal} & \\
 				\bottomrule
 			\end{tabularx}
 		\end{table}
@@ -636,27 +583,16 @@
 				\item \textit{Perceptual Video Quality Metrics} like \textit{Video Multimethod Assessment Fusion (VMAF)} and \textit{PSNR with Human Visual System accounting for visual Masking (PSNR-HVS-M)} specific video quality metrics that take into account human visual perception to assess video quality more accurately.
 			\end{enumerate}
 
-			Lastly, for augmented reality (under virtual try-on) the following metrics are used:
-
-			\begin{enumerate}
-				\item \textit{Tracking Accuracy} measures how accurately the AR system can track and overlay virtual objects onto the real world. It includes metrics like tracking error and jitter.
-				\item \textit{Latency} assesses the delay between user actions or movements and the system's response, aiming for low-latency AR experiences.
-				\item \textit{Frame Rate} evaluates the smoothness of AR rendering by measuring the number of frames displayed per second. Higher frame rates contribute to smoother and more immersive experiences.
-				\item \textit{Calibration Accuracy} measures the accuracy of spatial calibration between the physical and virtual worlds. It ensures that virtual objects align correctly with the real environment.
-				\item \textit{Stability} assesses the stability of virtual objects as users move or interact with the environment. Stable objects provide a more convincing AR experience.
-				\item \textit{Localization Accuracy} measures how accurately the AR system can determine the user's position and orientation in the real world, essential for precise object placement.
-			\end{enumerate}
-
 	\nocite{stocker2021new, DBLP:journals/csur/ChengSCHL21, Jain_Wah_2022, DBLP:journals/corr/abs-2202-02757, DBLP:journals/sncs/ShirkhaniMSH23, DBLP:journals/corr/abs-2111-00905, DBLP:journals/mta/GhodhbaniNRA22, DBLP:journals/cvm/LiangL21, menon2020impact, jayamini2021use, DBLP:journals/corr/abs-2202-09450, huang2019enhancing, mehta2020enhancement, zak2020augmented, caboni2019augmented, DBLP:journals/access/GiriJZB19, DBLP:journals/corr/abs-2105-03050, DBLP:journals/access/GuoZLCCW23, DBLP:journals/spm/ChenSC23, sahni2021review, liang2020implementation, sareen2022ai, 10153335, DBLP:journals/tmm/Yan0LZX0Y23}
 
 \section{Proposed System}
-	The proposed system represents a pioneering and transformative approach to online clothing shopping, leveraging the power of AI and AR to provide a seamless and immersive try-before-buy experience. At its core, the system is engineered to overcome the challenges inherent in the online fashion retail sector, including uncertainties related to clothing fit, style suitability, and the absence of a physical try-on opportunity. This proposed system consists of a set of cutting-edge components and features that collectively redefine the online shopping landscape:
+    The proposed system represents a pioneering and transformative approach to online clothing shopping, leveraging the power of AI and image synthesis to provide a seamless and immersive try-before-buy experience. At its core, the system is engineered to overcome the challenges inherent in the online fashion retail sector, including uncertainties related to clothing fit, style suitability, and the absence of a physical try-on opportunity. This proposed system consists of a set of cutting-edge components and features that collectively redefine the online shopping landscape:
 
 	\subsection*{AI-Driven Recommendation System}
 		The heart of the proposed system is a state-of-the-art AI-driven recommendation engine. This component harnesses the capabilities of machine learning and deep learning algorithms to scrutinise user data, including style preferences, body measurements, historical purchasing patterns, and user feedback. The recommendation system employs advanced algorithms to generate highly personalised clothing suggestions, catering to the user's distinct style and body shape. It leverages AI to adapt to changing user preferences, ensuring that the clothing recommendations evolve and remain relevant over time. The AI-driven recommendation system is not merely a static tool for suggesting clothing items; it's a dynamic and adaptive engine that continually learns from user interactions. This component plays a crucial role in shaping the user's shopping experience, ensuring that every recommendation aligns with individual style preferences, body size, and other personal factors.
 
-	\subsection*{AR Virtual Try-On}
-		The proposed system incorporates an innovative AR try-on feature that brings the virtual try-on experience to life. This component utilises cutting-edge AR technology to immerse users in a lifelike virtual fitting room. Users can see themselves in real-time, enhanced with virtual clothing items, enabling a 360-degree view of how different garments fit, move, and complement their bodies. The AR try-on feature is a pinnacle of realism, encompassing markerless tracking for pinpoint clothing placement, real-time cloth physics simulations for natural garment movement, and realistic fabric rendering. It creates a dynamic and interactive fitting experience, offering users the opportunity to assess clothing items as they would in a physical store. This immersive component is designed to eliminate uncertainties about fit and style, ultimately empowering users to make confident choices.
+	\subsection*{Image-synthesis Virtual Try-On}
+        The proposed system incorporates an innovative image synthesis-based virtual try-on feature that brings the virtual try-on experience to life. This component utilizes cutting-edge image synthesis technology to immerse users in a lifelike virtual fitting room. Users can see themselves in real-time, enhanced with virtual clothing items, enabling a 360-degree view of how different garments fit, move, and complement their bodies. The virtual try-on feature is a pinnacle of realism, encompassing advanced algorithms for precise clothing placement, real-time cloth physics simulations for natural garment movement, and realistic fabric rendering. It creates a dynamic and interactive fitting experience, offering users the opportunity to assess clothing items as they would in a physical store. This immersive component is designed to eliminate uncertainties about fit and style, ultimately empowering users to make confident choices.
 
 	\subsection*{User Profile Management}
 		The system prioritises user personalization through comprehensive profile management. Users have the capability to establish and maintain user profiles, which include personal information, style preferences, and body measurements. This feature enables the AI recommendation system to provide tailored clothing suggestions that precisely align with each user's unique style and fit requirements. User profiles serve as a foundation for personalization and ensure that every recommendation is curated to meet individual tastes and needs.
@@ -674,7 +610,7 @@
 		Prioritising user data privacy and security is a foundational principle of the system. The system employs robust data encryption and secure user data management practices to safeguard user profiles and sensitive information. Confidentiality and trust are paramount, and users can be confident that their data is protected and used responsibly.
 
 	\subsection*{Real-Time Connectivity}
-		The system operates in real-time, offering users instantaneous connectivity to both the AI recommendation engine and the AR try-on feature. Users can experience virtual try-ons instantly, receiving clothing recommendations and visualisations without delay. Real-time connectivity ensures that users can swiftly access and engage with the system's features, enhancing the efficiency of the online shopping experience.
+        The system operates in real-time, offering users instantaneous connectivity to both the AI recommendation engine and the image synthesis-based virtual try-on feature. Users can experience virtual try-ons instantly, receiving clothing recommendations and visualisations without delay. Real-time connectivity ensures that users can swiftly access and engage with the system's features, enhancing the efficiency of the online shopping experience.
 
 	\subsection*{Cross-Platform Accessibility}
-		The proposed system is designed with accessibility in mind. It is accessible across various platforms, including web browsers, mobile applications, and augmented reality devices. This cross-platform approach ensures that users can engage with the system on their preferred devices, making it versatile and user-friendly.
+        The proposed system is designed with accessibility in mind. It is accessible across various platforms, including web browsers, mobile applications, and image synthesis-enabled devices. This cross-platform approach ensures that users can engage with the system on their preferred devices, making it versatile and user-friendly.
