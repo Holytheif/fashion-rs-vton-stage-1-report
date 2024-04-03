@@ -1,4 +1,4 @@
-# Project Stage-I Report - AI-Based Clothing Recommendation For Try Before Buy
+# Project Stage-II Report - AI-Based Clothing Recommendation For Try Before Buy
 
 For the completion of final year project
 
