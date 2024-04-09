@@ -16,8 +16,8 @@ For the implementation of our proposed model, AIRVTON, we meticulously crafted a
 \begin{itemize}
   \item \textbf{Operating System}: Ubuntu 20.04 LTS (64-bit), renowned for its stability, security, and compatibility with deep learning frameworks.
   \item \textbf{Deep Learning Framework}: PyTorch 1.9.0, coupled with CUDA support, provided a flexible and efficient platform for developing and training neural network models, leveraging GPU acceleration for enhanced performance.
-  \item \textbf{Additional Libraries}: NumPy, SciPy, and Matplotlib were instrumental for data manipulation, scientific computing, and visualization tasks, augmenting the functionality of PyTorch.
-  \item \textbf{Image Processing Tools}: OpenCV, a versatile library for computer vision tasks, facilitated image loading, preprocessing, and augmentation, crucial for preparing datasets for training and evaluation.
+  \item \textbf{Additional Libraries}: NumPy, SciPy, and Matplotlib were instrumental for data manipulation, scientific computing, and visualization tasks, enhancing the functionality of PyTorch.
+  \item \textbf{Image Processing Tools}: OpenCV, a versatile library for computer vision tasks, facilitated image loading, preprocessing, crucial for preparing datasets for training and evaluation.
   \item \textbf{Environment Management}: Anaconda virtual environment served as a robust solution for package management and isolation, enabling seamless configuration and reproducibility across different computing environments.
 \end{itemize}
 
@@ -46,7 +46,7 @@ Prior to feeding the VITON-HD dataset into our VTO model for training, we implem
 
 1. \textbf{Data Standardization:} Ensure consistency and compatibility within the data by normalizing the range of values.
 
-2. \textbf{Data Augmentation:} Artificially expand the dataset size and introduce variations to improve model generalization.
+2. \textbf{Data Build:} Artificially expand the dataset size and introduce variations to improve model generalization.
 
 \subsection{Data Standardization}
 
@@ -54,9 +54,9 @@ The raw images within VITON-HD might exhibit variations in pixel intensity due t
 
 \textbf{Normalization Method:} We adopted min-max scaling, where each pixel value within an image was linearly transformed to a range between 0 and 1. This technique ensures that all images possess comparable intensity levels, preventing any specific image from dominating the training process due to higher pixel values.
 
-\subsection{Data Augmentation}
+\subsection{Data Build}
 
-Data augmentation plays a crucial role in mitigating overfitting and enhancing the model's ability to generalize to unseen data. In our research, we utilized the following data augmentation techniques:
+Data build plays a crucial role in mitigating overfitting and enhancing the model's ability to generalize to unseen data. In our research, we utilized the following data build techniques:
 
 \textbf{Random Cropping:} Images were randomly cropped to smaller sizes during training. This exposes the model to various image regions, forcing it to learn features relevant to the entire garment rather than relying solely on specific image sections.
 
@@ -66,7 +66,7 @@ Data augmentation plays a crucial role in mitigating overfitting and enhancing t
 
 \textbf{Color Jittering:} This technique involves randomly adjusting image brightness, contrast, saturation, and hue. It helps the model become more robust to illumination changes and color variations in real-world scenarios.
 
-By providing details on the chosen normalization and augmentation techniques, you offer valuable insights into the data preparation process and its contribution to the overall performance of your VTO model.
+By providing details on the chosen normalization and build techniques, you offer valuable insights into the data preparation process and its contribution to the overall performance of your VTO model.
 
 \section{Model Architecture}
 We introduce AIRVTON (AI-based Recommendation and Virtual Try-On), an innovative model designed to integrate both recommendation and virtual try-on functionalities within the fashion ecommerce domain. AIRVTON leverages advanced artificial intelligence techniques to provide personalized clothing recommendations while also offering users the ability to virtually try on recommended items.
