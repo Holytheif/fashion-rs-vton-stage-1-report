@@ -172,18 +172,23 @@ These evaluation metrics provide valuable quantitative insights into the perform
 
 \section{Results}
 
+In this section, we present the results of our experiments conducted to evaluate the performance of AIRVTON, our proposed model for fashion recommendation and virtual try-on. We employ two key evaluation metrics, namely Structural Similarity Index (SSIM) and Fréchet Inception Distance (FID), to assess the quality and fidelity of the generated try-on images produced by AIRVTON. Through rigorous experimentation and analysis, we aim to demonstrate the effectiveness of AIRVTON in generating realistic and visually appealing try-on results that closely resemble the ground truth images from the dataset. The following subsections provide detailed insights into the SSIM and FID evaluation results, shedding light on the performance and capabilities of AIRVTON in the context of fashion ecommerce and virtual fitting solutions.
+
+
 \begin{table}[htbp]
+    \caption{Evaluation Results}
+    \label{tab:evaluation_results}
     \centering
     \begin{tabular}[htbp]{|l|l|l|l|l|l|l|}
     \hline
-        ~ &  192x256  & ~ & 384x512 & ~ & 768x1024 & ~ \\ \hline
-        ~ &  SSIM  &  FID  &  SSIM  &  FID  &  SSIM  &  FID  \\ \hline
-        CP-VTON &  0.748  &  30.07  &  0.723  &  30.30  &  0.728  &  43.19  \\ \hline
-        ACGPN &  0.772  &  11.25  &  0.935  &  14.41  &  0.845  &  43.24  \\ \hline
-        VITON-HD &  0.816  &  16.32  &  0.751  &  11.61  &  0.813  &  11.63  \\ \hline
-        PF-AFN &  -    &  -    &  -    &  -    &  -    &  13.99  \\ \hline
-        HR-VITON &  0.888  &  9.39  &  0.825  &  9.88  &  0.895  &  10.83  \\ \hline
-        AIRVTON (Ours) &  0.818  &  9.60  &  0.802  &  10.18  &  0.976  &  10.67  \\ \hline
+        ~ &  \multicolumn{2}{c|}{\textbf{192$\times$256}} &  \multicolumn{2}{c|}{\textbf{384$\times$512}} & \multicolumn{2}{c|}{\textbf{768$\times$1024}} \\ 
+        ~ &  SSIM ${\uparrow}$ &  FID ${\downarrow}$ &  SSIM ${\uparrow}$  &  FID ${\downarrow}$ &  SSIM ${\uparrow}$ &  FID ${\downarrow}$ \\ \hline
+        CP-VTON &  0.748  &  30.07  &  0.723  &  30.30  &  0.728  &  43.19  \\ 
+        ACGPN &  0.772  &  11.25  &  0.935  &  14.41  &  0.845  &  43.24  \\ 
+        VITON-HD &  0.816  &  16.32  &  0.751  &  11.61  &  0.813  &  11.63  \\ 
+        PF-AFN &  -    &  -    &  -    &  -    &  -    &  13.99  \\ 
+        HR-VITON &  0.888  &  9.39  &  0.825  &  9.88  &  0.895  &  10.83  \\ 
+        \textbf{AIRVTON (Ours)} &  \textbf{0.818}  &  \textbf{9.60}  &  \textbf{0.802}  &  \textbf{10.18}  &  \textbf{0.976}  &  \textbf{10.67}  \\ \hline
     \end{tabular}
 \end{table}
 
