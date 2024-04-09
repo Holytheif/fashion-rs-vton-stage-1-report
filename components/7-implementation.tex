@@ -108,7 +108,16 @@ We introduce AIRVTON (AI-based Recommendation and Virtual Try-On), an innovative
     For the pose map \( P \), we leverage dense pose techniques, which enable the mapping of all pixels within the person regions in the RGB image onto the 3D surface of the individual's body. This step is crucial for preserving the spatial relationships and nuances of the person's pose within the synthesized imagery.
 
     In order to establish a clothing-agnostic representation of the person, we introduce a clothing-agnostic person image \( I_a \) and a corresponding clothing-agnostic segmentation map \( S_a \), drawing inspiration from the methodology employed in VITON-HD. These elements collectively form the foundation for subsequent stages in our virtual try-on process within AIRVTON.
-
+    \begin{figure}
+        \includegraphics[width=\textwidth]{components/images/output1.png}
+        \caption{User Selection}
+        \label{fig:user-selection}
+    \end{figure}
+    \begin{figure}
+        \includegraphics[width=\textwidth]{components/images/output2.png}
+        \caption{Outfit Generation}
+        \label{fig:outfit-generation}
+    \end{figure}
 
 \subsubsection{Attire Simulation Engine}
     In this pivotal stage, our primary objective is to generate the segmentation map \( \hat{S} \) depicting the person adorned with the target clothing item \( c \), while simultaneously deforming \( c \) to conform to the contours of the person's body. The resulting warped clothing image \( \hat{I}_c \) and the synthesized segmentation map \( \hat{S} \) serve as crucial conditions for the subsequent try-on image generation process.
@@ -232,3 +241,64 @@ For the Fréchet Inception Distance (FID) evaluation, we compared the feature di
 The FID score obtained for AIRVTON is 10.67, indicating a relatively low distance between the feature distributions of the generated try-on images and the ground truth images. This suggests that AIRVTON effectively captures the underlying structure and characteristics of the fashion items, producing results that closely resemble the ground truth images.
 
 The results of both SSIM and FID evaluations demonstrate the effectiveness of AIRVTON in generating realistic and high-quality try-on images, showcasing its potential for enhancing the online shopping experience in the fashion ecommerce domain.
+
+\section{Testing}
+
+In this section, we outline the test cases conducted to validate the functionality and robustness of AIRVTON. The following test cases cover key aspects of the system, ensuring its reliability and performance in different scenarios.
+
+\subsection{test\_save\_file}
+\begin{itemize}
+  \item \textbf{Description}: This test case verifies the functionality of the save file feature in AIRVTON.
+  \item \textbf{Steps}:
+    \begin{enumerate}
+      \item Upload a sample image to AIRVTON.
+      \item Click on the "Save" button to save the image.
+    \end{enumerate}
+  \item \textbf{Expected Outcome}: The uploaded image should be saved successfully to the specified location.
+\end{itemize}
+
+\subsection{test\_save\_empty\_file}
+\begin{itemize}
+  \item \textbf{Description}: This test case validates the behavior of AIRVTON when attempting to save an empty file.
+  \item \textbf{Steps}:
+    \begin{enumerate}
+      \item Attempt to save an empty file using AIRVTON.
+    \end{enumerate}
+  \item \textbf{Expected Outcome}: AIRVTON should display an error message indicating that the file cannot be saved as it is empty.
+\end{itemize}
+
+\subsection{test\_no\_uploaded\_file}
+\begin{itemize}
+  \item \textbf{Description}: This test case examines the response of AIRVTON when no file is uploaded.
+  \item \textbf{Steps}:
+    \begin{enumerate}
+      \item Access AIRVTON without uploading any file.
+    \end{enumerate}
+  \item \textbf{Expected Outcome}: AIRVTON should display a message prompting the user to upload a file.
+\end{itemize}
+
+\subsection{test\_streamlit\_app\_title}
+\begin{itemize}
+  \item \textbf{Description}: This test case verifies the title of the Streamlit web application.
+  \item \textbf{Steps}:
+    \begin{enumerate}
+      \item Access AIRVTON web application.
+    \end{enumerate}
+  \item \textbf{Expected Outcome}: The title of the web application should be "AIRVTON - Fashion Recommendation and Virtual Try-On".
+\end{itemize}
+
+\subsection{test\_save\_file\_path}
+\begin{itemize}
+  \item \textbf{Description}: This test case checks if the file is saved at the specified path.
+  \item \textbf{Steps}:
+    \begin{enumerate}
+      \item Upload a sample image to AIRVTON.
+      \item Click on the "Save" button to save the image.
+    \end{enumerate}
+  \item \textbf{Expected Outcome}: The uploaded image should be saved at the specified file path on the local system.
+\end{itemize}
+\begin{figure}
+    \includegraphics[width=\textwidth]{components/images/test_case.jpg}
+    \caption{Test Case Snapshot}
+    \label{fig:test-case}
+\end{figure}
