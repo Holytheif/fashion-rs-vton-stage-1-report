@@ -45,3 +45,349 @@
 		\item \textbf{Multimodal representations:} Transformers are used to create multimodal embeddings that relate both textual and visual features of clothing items. These embeddings capture a holistic view of fashion items by integrating information from both text and images. The resulting embeddings are valuable for recommendation accuracy.
 		\item \textbf{Image synthesis enhancement:} In the virtual try-on component, Transformers help in image recognition, style matching, and visual understanding. They optimize the overlay of digital clothing items on users' images, ensuring a realistic and visually appealing virtual try-on experience.
 	\end{enumerate}
+
+\section{PseudoCode}
+\subsection{Fashion Recommendation}
+\BlankLine
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{user\_data}
+  \Output{preprocessed user\_data}
+
+  \caption{Preprocess User Data}
+  \label{alg:preprocess_user_data}
+  \BlankLine
+
+  \SetKwFunction{FMain}{preprocess\_user\_data}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{data}}{
+    cleaned\_data = handle\_missing\_values(data)\;
+    encoded\_data = encode\_categorical\_data(cleaned\_data)\;
+    normalized\_data = normalize\_numerical\_data(encoded\_data)\;
+    \KwRet normalized\_data\;
+  }
+\end{algorithm}
+ \BlankLine
+Preprocess User data:
+ \BlankLine
+\begin{itemize}
+\item This function cleans and prepares user data for further processing.
+\item It handles missing values by imputing them with appropriate strategies like mean or median.
+\item Categorical data (e.g., user preferences like color, style) is converted into numerical representation (e.g., one-hot encoding).
+\item Numerical data (e.g., user demographics like age) is normalized to a common scale for better comparison.
+\end{itemize}
+ \BlankLine
+
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{clothing\_data}
+  \Output{preprocessed clothing\_data}
+
+  \caption{Preprocess Clothing Data}
+  \label{alg:preprocess_clothing_data}
+  \BlankLine
+
+  \SetKwFunction{FMain}{preprocess\_clothing\_data}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{data}}{
+    resized\_data = resize\_images(data)\;
+    resnet\_ready\_data = preprocess\_for\_resnet(resized\_data)\;
+    \KwRet resnet\_ready\_data\;
+  }
+\end{algorithm}
+ \BlankLine
+Preprocess Clothing data:
+ \BlankLine
+\begin{itemize}
+    \item This function prepares clothing data, likely consisting of images, for feature extraction.
+    \item Images might be resized to a standard size to ensure consistent processing by the ResNet50 model.
+    \item Additional preprocessing steps might be necessary depending on the specific model requirements (e.g., color normalization, mean subtraction).
+\end{itemize}
+ \BlankLine
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{data}
+  \Output{features}
+
+  \caption{Extract Features using ResNet50}
+  \label{alg:extract_features_resnet}
+  \BlankLine
+
+  \SetKwFunction{FMain}{extract\_features\_resnet}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{data}}{
+    resnet\_model = load\_resnet\_model()\;
+    features = resnet\_model.predict(data)\;
+    \KwRet features\;
+  }
+\end{algorithm}
+ \BlankLine
+Extract Features Resnet:
+ \BlankLine
+\begin{itemize}
+    \item This function utilizes a pre-trained ResNet50 model for feature extraction.
+    \item The ResNet50 model, a deep learning architecture, is used to capture high-level features from both user and clothing data.
+    \item These features represent essential characteristics of the data, allowing for comparison between user preferences and clothing items.
+\end{itemize}
+ \BlankLine
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{user\_features, clothing\_features}
+  \Output{k nearest neighbors}
+
+  \caption{Find Nearest Neighbors}
+  \label{alg:find_nearest_neighbors}
+  \BlankLine
+
+  \SetKwFunction{FMain}{find\_nearest\_neighbors}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{user\_features, clothing\_features, k}}{
+    distances = calculate\_pairwise\_distances(user\_features, clothing\_features)\;
+    nearest\_neighbors = identify\_k\_nearest\_neighbors(distances, k)\;
+    \KwRet nearest\_neighbors\;
+  }
+\end{algorithm}
+ \BlankLine
+Find Nearest Neighbors:
+ \BlankLine
+\begin{itemize}
+    \item This function identifies the k nearest neighbors (clothing items) for a given user.
+    \item It calculates the distance (similarity) between the user's features and the features of each clothing item. This distance metric could be Euclidean distance for numerical features.
+    \item Based on the calculated distances, the function identifies the k clothing items with the most similar features, representing potential recommendations for the user.
+\end{itemize}
+ \BlankLine
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{recommendations, user\_preferences, ratings}
+  \Output{refined recommendations}
+
+  \caption{Refine Recommendations}
+  \label{alg:refine_recommendations}
+  \BlankLine
+
+  \SetKwFunction{FMain}{refine\_recommendations}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{recommendations, user\_preferences, ratings}}{
+    weighted\_recommendations = apply\_preference\_weights(recommendations, user\_preferences)\;
+    refined\_recommendations = incorporate\_ratings(weighted\_recommendations, ratings)\;
+    \KwRet refined\_recommendations\;
+  }
+\end{algorithm}
+ \BlankLine
+Refine Recommendations:
+ \BlankLine
+\begin{itemize}
+    \item This function takes the initial recommendations (k nearest neighbors) and refines them based on user preferences and ratings.
+    \item User preferences (e.g., preferred styles, colors) are retrieved from the user data.
+    \item Weights are applied to the recommendations, giving higher priority to items that match user preferences.
+    \item The function might incorporate collaborative filtering by considering user ratings on similar items, potentially recommending items that other users with similar preferences have rated highly.
+     \BlankLine
+\end{itemize}
+\subsection{AIR-VTON}
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{person\_image, clothing\_image}
+  \Output{preprocessed person\_image, preprocessed clothing\_image}
+
+  \caption{Preprocessing}
+  \label{alg:preprocess}
+  \BlankLine
+
+  \SetKwFunction{FMain}{preprocess}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{image}}{
+    resized\_image = resize(image)\;
+    normalized\_image = normalize(resized\_image)\;
+    \KwRet normalized\_image\;
+  }
+\end{algorithm}
+\BlankLine
+Preprocessing:
+\BlankLine
+\begin{itemize}
+    \item Resizes the input image to a fixed size, ensuring compatibility with the model.
+    \item Normalizes pixel values (often to a range of 0 to 1), preparing them for the neural network.
+    \item Returns the preprocessed image.
+\end{itemize}
+
+
+\BlankLine
+
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{image}
+  \Output{body keypoints}
+
+  \caption{Pose Estimation}
+  \label{alg:pose_estimation}
+  \BlankLine
+
+  \SetKwFunction{FMain}{pose\_estimation}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{image}}{
+    preprocessed\_image = preprocess(image)\;
+    pose\_model = cv2.dnn.readNetFromModelZoo("path/to/pose\_model.pb", "path/to/pose\_config.pbtxt")\;
+    pose\_result = pose\_model.forward(preprocessed\_image)\;
+    body\_keypoints = pose\_model.extract(features)\;
+    \KwRet body\_keypoints\;
+  }
+\end{algorithm}
+\BlankLine
+Pose Estimation:
+
+\begin{itemize}
+    \item Preprocesses the image for the specific pose estimation model being used.
+    \item Loads a pre-trained pose estimation model (like OpenPose or AlphaPose).
+    \item Performs pose estimation using the loaded model to identify body keypoints.
+    \item Extracts the body pose keypoints from the model's output.
+    \item Returns the extracted body pose keypoints.
+\end{itemize}
+\BlankLine
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{person\_image, clothing\_image}
+  \Output{combined\_features}
+
+  \caption{Encoder Network}
+  \label{alg:encoder}
+  \BlankLine
+
+  \SetKwFunction{FMain}{encoder}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{person\_image, clothing\_image}}{
+    person\_features = cnn\_encoder(person\_image)\;
+    clothing\_features = cnn\_encoder(clothing\_image)\;
+    combined\_features = combine(person\_features, clothing\_features)\;
+    \KwRet combined\_features\;
+  }
+\end{algorithm}
+\BlankLine
+Encoder Network:
+\BlankLine
+\begin{itemize}
+    \item Uses a Convolutional Neural Network (CNN) with multiple layers.
+    \item Extracts features from the person image and clothing image using the CNN.
+    \item Combines the extracted person and clothing features (e.g., by concatenation).
+    \item Returns the combined features.
+\end{itemize}
+\BlankLine
+
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{combined\_features}
+  \Output{warped\_clothing\_features, segmentation\_mask}
+
+  \caption{Decoder Network}
+  \label{alg:decoder}
+  \BlankLine
+
+  \SetKwFunction{FMain}{decoder}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{combined\_features}}{
+    warped\_clothing\_features = decoder\_block(combined\_features, upsample=True)\;
+    segmentation\_mask = segmentation\_head(combined\_features)\;
+    \KwRet warped\_clothing\_features, segmentation\_mask\;
+  }
+\end{algorithm}
+\BlankLine
+Decoder Network
+\BlankLine
+\begin{itemize}
+    \item Takes the combined features from the encoder.
+    \item Uses a series of convolutional layers with upsampling to increase the resolution.
+    \item Generates warped clothing features: These features describe how the clothing should be deformed to fit the person's body.
+    \item Uses a convolutional layer to predict a segmentation mask. This mask identifies which pixels belong to the person in the final image.
+    \item Returns the warped clothing features and the segmentation mask.
+\end{itemize}
+\BlankLine
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{clothing\_image, warped\_features}
+  \Output{warped\_clothing}
+
+  \caption{Warp Clothing Image}
+  \label{alg:warp_image}
+  \BlankLine
+
+  \SetKwFunction{FMain}{warp\_image}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{clothing\_image, warped\_features}}{
+    deformation\_grid = generate\_deformation\_grid(warped\_features)\;
+    warped\_clothing = warp(clothing\_image, deformation\_grid)\;
+    \KwRet warped\_clothing\;
+  }
+\end{algorithm}
+\BlankLine
+Warp Clothing Image
+\BlankLine
+\begin{itemize}
+    \item Takes the clothing image and the warped features from the decoder.
+    \item Uses the warped features to create a deformation grid.
+    \item This grid defines how to warp the clothing image to fit the person's body shape.
+    \item Warps the clothing image using the deformation grid.
+    \item Returns the warped clothing image.
+\end{itemize}
+\BlankLine
+
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \SetKwInOut{Input}{Input}
+  \SetKwInOut{Output}{Output}
+
+  \Input{person\_image, warped\_clothing, segmentation\_mask}
+  \Output{final\_image}
+
+  \caption{Image Fusion}
+  \label{alg:image_fusion}
+  \BlankLine
+
+  \SetKwFunction{FMain}{combine\_images}
+  \SetKwProg{Fn}{Function}{:}{}
+  \Fn{\FMain{person\_image, warped\_clothing, segmentation\_mask}}{
+    person\_mask = 1 - segmentation\_mask\;
+    person\_region = person\_image * person\_mask\;
+    final\_image = warped\_clothing * segmentation\_mask + person\_region\;
+    \KwRet final\_image\;
+  }
+\end{algorithm}
+\BlankLine
+Image Fusion
+\BlankLine
+\begin{itemize}
+    \item Takes the person image, the warped clothing, and the segmentation mask.
+    \item Creates a person mask by inverting the segmentation mask (isolating the person region).
+    \item Extracts the person region from the original image using the person mask.
+    \item Combines the warped clothing with the person region based on the segmentation mask.
+    \item This ensures realistic placement of the clothing on the person's body.
+    \item Returns the final image with the virtual try-on effect.
+\end{itemize}

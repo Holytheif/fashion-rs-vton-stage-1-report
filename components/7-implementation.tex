@@ -171,29 +171,47 @@ By incorporating these data build techniques into our training pipeline, we aim 
 
 	To accomplish this, AIRVTON employs state-of-the-art image synthesis techniques, trained on a diverse dataset of clothing images and human poses. The model dynamically adjusts the appearance of the selected clothing item to fit the user's body proportions and pose, thereby providing an immersive and realistic try-on experience.
 
-\subsection{Fashion Recommendation}
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=1\textwidth]{components/images/recommender.png}
-        \caption{Recommendation System}
-        \label{fig:recomm}
-    \end{figure}
+    \subsection{Fashion Recommendation}
+        \begin{figure}
+            \centering
+            \includegraphics[width=1\textwidth]{components/images/rec_1.jpg}
+            \caption{Recommendation System (Trial 1)}
+            \label{fig:recomm}
+        \end{figure}
+        \begin{figure}
+            \centering
+            \includegraphics[width=1\textwidth]{components/images/rec_2.jpg}
+            \caption{Recommendation System (Trial 2)}
+            \label{fig:recomm}
+        \end{figure}
+        \begin{figure}
+            \centering
+            \includegraphics[width=1\textwidth]{components/images/rec_3.jpg}
+            \caption{Recommendation System (Trial 3)}
+            \label{fig:recomm}
+        \end{figure}
+        \begin{figure}
+            \centering
+            \includegraphics[width=1\textwidth]{components/images/rec_4.jpg}
+            \caption{Recommendation System (Trial 4)}
+            \label{fig:recomm}
+        \end{figure}
 
-    In this section, we elaborate on the recommendation aspect of our model AIRVTON, which seamlessly combines Convolutional Neural Network (CNN) architecture with a Nearest Neighbor-based recommender system. This hybrid approach leverages the strengths of both deep learning and traditional recommendation techniques to provide personalized clothing recommendations tailored to individual preferences. We provide a detailed overview of the recommendation pipeline, including the training of neural networks, inventory selection for recommendation generation, and database creation containing item information.
+        In this section, we elaborate on the recommendation aspect of our model AIRVTON, which seamlessly combines Convolutional Neural Network (CNN) architecture with a Nearest Neighbor-based recommender system. This hybrid approach leverages the strengths of both deep learning and traditional recommendation techniques to provide personalized clothing recommendations tailored to individual preferences. We provide a detailed overview of the recommendation pipeline, including the training of neural networks, inventory selection for recommendation generation, and database creation containing item information.
 
-    \subsubsection{Neural Network Training}
+        \subsubsection{Neural Network Training}
 
-    The recommendation pipeline begins with the training of Convolutional Neural Networks (CNNs) on a large dataset of fashion images. These networks are trained using transfer learning techniques, where pre-trained models such as ResNet50 are fine-tuned on the specific task of fashion recommendation. During training, the CNNs learn to extract high-level features from the input images, capturing essential visual characteristics of different clothing items. Additional layers are added to the pre-trained architectures to adapt them to the recommendation task, enabling them to generate embeddings that encode the unique features of each fashion item.
+        The recommendation pipeline begins with the training of Convolutional Neural Networks (CNNs) on a large dataset of fashion images. These networks are trained using transfer learning techniques, where pre-trained models such as ResNet50 are fine-tuned on the specific task of fashion recommendation. During training, the CNNs learn to extract high-level features from the input images, capturing essential visual characteristics of different clothing items. Additional layers are added to the pre-trained architectures to adapt them to the recommendation task, enabling them to generate embeddings that encode the unique features of each fashion item.
 
-    \subsubsection{Inventory Selection}
+        \subsubsection{Inventory Selection}
 
-    Following neural network training, an inventory is selected for recommendation generation. This inventory comprises a diverse collection of clothing items representing various styles, brands, and categories. Careful selection of the inventory ensures that it adequately covers the preferences and tastes of the target user demographic. The inventory may be curated manually based on expert knowledge or automatically generated using data-driven approaches such as clustering or collaborative filtering.
+        Following neural network training, an inventory is selected for recommendation generation. This inventory comprises a diverse collection of clothing items representing various styles, brands, and categories. Careful selection of the inventory ensures that it adequately covers the preferences and tastes of the target user demographic. The inventory may be curated manually based on expert knowledge or automatically generated using data-driven approaches such as clustering or collaborative filtering.
 
-    \subsubsection{Database Creation}
+        \subsubsection{Database Creation}
 
-    Once the inventory is finalized, a corresponding database is created containing detailed information about each item. This information may include attributes such as item name, description, brand, price, and image embeddings generated by the trained neural networks. The database serves as a repository of item information that facilitates efficient and accurate recommendation generation. It allows for fast retrieval of relevant items based on user preferences and provides a comprehensive overview of the available inventory.
+        Once the inventory is finalized, a corresponding database is created containing detailed information about each item. This information may include attributes such as item name, description, brand, price, and image embeddings generated by the trained neural networks. The database serves as a repository of item information that facilitates efficient and accurate recommendation generation. It allows for fast retrieval of relevant items based on user preferences and provides a comprehensive overview of the available inventory.
 
-    By combining deep learning techniques with traditional recommendation methods, AIRVTON offers a powerful and versatile approach to clothing recommendation. The integration of CNNs enables the model to learn rich representations of fashion items, while the Nearest Neighbor-based recommender leverages these embeddings to provide personalized recommendations. This hybrid approach ensures that AIRVTON can effectively capture the diverse preferences and tastes of users, leading to more accurate and relevant clothing suggestions.
+        By combining deep learning techniques with traditional recommendation methods, AIRVTON offers a powerful and versatile approach to clothing recommendation. The integration of CNNs enables the model to learn rich representations of fashion items, while the Nearest Neighbor-based recommender leverages these embeddings to provide personalized recommendations. This hybrid approach ensures that AIRVTON can effectively capture the diverse preferences and tastes of users, leading to more accurate and relevant clothing suggestions.
 
     \subsection{Approach to recommendation system}
 
@@ -334,10 +352,47 @@ In this section, we present the results of our experiments conducted to evaluate
     \end{tabular}
 \end{table}
 
+\begin{figure}
+    \includegraphics[width=\textwidth]{components/images/2.png}
+    \caption{FID Score (192$\times$256)}
+    \label{fig:fid-score-low}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{components/images/3.png}
+    \caption{FID Score (384$\times$512)}
+    \label{fig:fid-score-med}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{components/images/4.png}
+    \caption{FID Score (768$\times$1024)}
+    \label{fig:fid-score-high}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{components/images/5.png}
+    \caption{SSIM Score (192$\times$256)}
+    \label{fig:ssim-score-low}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{components/images/6.png}
+    \caption{SSIM Score (384$\times$512)}
+    \label{fig:ssim-score-med}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{components/images/7.png}
+    \caption{SSIM Score (768$\times$1024)}
+    \label{fig:ssim-score-high}
+\end{figure}
+
 \subsection{SSIM Evaluation}
 
 We evaluated the structural similarity index (SSIM) between the generated try-on images produced by AIRVTON and the ground truth images from the dataset. The SSIM scores were computed across a sample of 1000 images randomly selected from the test set. Table~\ref{tab:ssim_results} presents the mean SSIM scores along with the standard deviation.
 
+The results indicate that AIRVTON achieved a mean SSIM score of 0.976 with a standard deviation of 0.03, showcasing a high level of structural similarity between the generated try-on images and the ground truth images.
 
 \begin{table}[htbp]
   \caption{SSIM Evaluation Results}
@@ -352,86 +407,123 @@ We evaluated the structural similarity index (SSIM) between the generated try-on
   \end{tabular}
 \end{table}
 
-The results indicate that AIRVTON achieved a mean SSIM score of 0.976 with a standard deviation of 0.03, showcasing a high level of structural similarity between the generated try-on images and the ground truth images.
-
 \subsection{FID Evaluation}
 
 For the Fréchet Inception Distance (FID) evaluation, we compared the feature distributions of the generated try-on images and the ground truth images using an Inception-v3 model pretrained on a large dataset. Table~\ref{tab:fid_results} summarizes the FID scores obtained from this evaluation.
-
-\begin{table}[htbp]
-  \caption{FID Evaluation Results}
-  \label{tab:fid_results}
-  \centering
-  \begin{tabular}{lc}
-    \toprule
-    \textbf{Model} & \textbf{FID Score} \\
-    \midrule
-    AIRVTON & 10.67 \\
-    \bottomrule
-  \end{tabular}
-\end{table}
 
 The FID score obtained for AIRVTON is 10.67, indicating a relatively low distance between the feature distributions of the generated try-on images and the ground truth images. This suggests that AIRVTON effectively captures the underlying structure and characteristics of the fashion items, producing results that closely resemble the ground truth images.
 
 The results of both SSIM and FID evaluations demonstrate the effectiveness of AIRVTON in generating realistic and high-quality try-on images, showcasing its potential for enhancing the online shopping experience in the fashion ecommerce domain.
 
+\begin{table}[h!]
+    \caption{FID Evaluation Results}
+    \label{tab:fid_results}
+    \centering
+    \begin{tabular}{lc}
+      \toprule
+      \textbf{Model} & \textbf{FID Score} \\
+      \midrule
+      AIRVTON & 10.67 \\
+      \bottomrule
+    \end{tabular}
+\end{table}
+
 \section{Testing}
 
-In this section, we outline the test cases conducted to validate the functionality and robustness of AIRVTON. The following test cases cover key aspects of the system, ensuring its reliability and performance in different scenarios.
-
-\subsection{test\_save\_file}
+    \subsection{Fashion Recommendation Tests}
 \begin{itemize}
-  \item \textbf{Description}: This test case verifies the functionality of the save file feature in AIRVTON.
-  \item \textbf{Steps}:
-    \begin{enumerate}
-      \item Upload a sample image to AIRVTON.
-      \item Click on the "Save" button to save the image.
-    \end{enumerate}
-  \item \textbf{Expected Outcome}: The uploaded image should be saved successfully to the specified location.
+    \item \textbf{test\_saving\_uploaded\_file\_successful}: This test ensures that the function \texttt{save\_file} successfully saves an uploaded file to the specified location. It creates a temporary directory, uploads a test file, and verifies that the file is saved correctly.
+
+
+    \item \textbf{test\_extracting\_features\_from\_image\_successful}: This test validates the functionality of the \texttt{extract\_img\_features} function by ensuring that it accurately extracts features from an image. It uses a mock ResNet model to simulate feature extraction and verifies the correctness of the extracted features.
+
+    \item \textbf{test\_recommending\_similar\_images\_successful}: This test confirms the correct functioning of the \texttt{recommend} function, which recommends similar images based on extracted features. It generates random feature vectors and asserts that the recommended indices are within the range of the feature list.
+    
+    \begin{figure}
+        \includegraphics[width=\textwidth]{components/images/recomm_tests.png}
+        \caption{Recommendation Tests}
+        \label{fig:test-case-recomm}
+    \end{figure}
+    
+    \item \textbf{test\_radio\_button\_display\_upload\_option\_present}: This test verifies that the radio button for choosing image source displays the "Upload image" option. It checks if the string "Upload image" is present in the radio button options.
+    
+    \item \textbf{test\_file\_uploader\_displayed\_successfully}: This test ensures that the file uploader interface is successfully displayed. It checks if the \texttt{st.file uploader} function returns a non-None value, indicating that the file uploader is rendered correctly.
+        
+    \item \textbf{test-radio-button-display-capture-option-present}: This test validates the presence of the "Capture image" option in the radio button for choosing image source. It verifies the inclusion of the string "Capture image" in the radio button options.
+        
+    \item \textbf{test-camera-input-displayed-successfully}: This test checks if the camera input interface is displayed properly. It verifies that the \texttt{st.camera input} function returns a non-None value, indicating the successful rendering of the camera input.
+    
+    \item \textbf{test\_extracting\_features\_from\_captured\_image\_successful}: This test ensures the accurate extraction of features from a captured image. It mocks feature vectors and validates that the extracted features have the expected length.
+        
+    \item \textbf{test-recommending-similar-images-after-upload-successful}: This te-st verifies the successful recommendation of similar images after uploading. It uses a mock to intercept the \texttt{st.image} function calls and ensures that it is called the expected number of times.
+        
+    \item \textbf{test-recommending-similar-images-after-capture-successful}: This t-est confirms the successful recommendation of similar images after capturing an image. Similar to the previous test, it intercepts \texttt{st.image} function calls to validate their occurrence.
+    
+    
+    \item \textbf{test\_saving\_uploaded\_file\_failure}: This test checks if the appropriate error message is displayed when saving an uploaded file fails. It attempts to save a file to an invalid directory and asserts that the function returns 0, indicating failure.
+        
+    \item \textbf{test\_no\_file\_uploaded}: This test ensures that an error message is displayed when no file is uploaded. It verifies that the \texttt{st.file\_uploader} function returns None when no file is uploaded.
+        
+    \item \textbf{test\_no\_image\_captured}: This test validates the display of an error message when no image is captured. It checks if the \texttt{st.camera\_input} function returns None when no image is captured.
+        
+    \item \textbf{test\_invalid\_file\_format}: This test verifies the display of an error message when an invalid file format is uploaded. It attempts to save a file with an invalid format and asserts that the \texttt{save\_file} function returns 0, indicating failure.
+        
+    \item \textbf{test\_invalid\_image\_captured}: This test ensures the display of an error message when an invalid image is captured. It attempts to capture an image with invalid image data and verifies that the \texttt{capture\_image} function returns None, indicating failure.
+    
 \end{itemize}
 
-\subsection{test\_save\_empty\_file}
-\begin{itemize}
-  \item \textbf{Description}: This test case validates the behavior of AIRVTON when attempting to save an empty file.
-  \item \textbf{Steps}:
-    \begin{enumerate}
-      \item Attempt to save an empty file using AIRVTON.
-    \end{enumerate}
-  \item \textbf{Expected Outcome}: AIRVTON should display an error message indicating that the file cannot be saved as it is empty.
-\end{itemize}
+    \subsection{Virtual Try On Tests}
+    
+    \subsubsection{VTON MAIN Tests}
 
-\subsection{test\_no\_uploaded\_file}
-\begin{itemize}
-  \item \textbf{Description}: This test case examines the response of AIRVTON when no file is uploaded.
-  \item \textbf{Steps}:
     \begin{enumerate}
-      \item Access AIRVTON without uploading any file.
+        \item \textbf{test\_read\_input\_image\_successful}: This test ensures that the input image is successfully read. It verifies that the \texttt{input\_image} fixture returns a non-None value, indicating that the image is loaded correctly.
+        
+        \item \textbf{test\_generate\_mask\_of\_cloth\_successful}: This test checks if the mask of the cloth is generated successfully. It validates the existence of the "cloth\_mask.png" file, which should be created during the execution of the script.
+        
+        \item \textbf{test\_generate\_openpose\_coordinate\_using\_posenet\_successful}: This test verifies the successful generation of openpose coordinates using posenet. It confirms the presence of the "openpose\_coordinate.json" file, indicating that the coordinates are generated as expected.
+        
+        \item \textbf{test\_generate\_semantic\_segmentation\_successful}: This test ensures t-hat semantic segmentation is generated successfully. It checks for the existence of the "resized\_segmentation\_img.png" file, which should contain the segmented image.
+        
+        \item \textbf{test\_generate\_grayscale\_semantic\_segmentation\_image\_successful}: 
+        
+        This test validates the generation of a grayscale semantic segmentation image. It confirms the existence of the "seg\_grayscale.png" file, indicating that the grayscale segmentation image is successfully generated.
+        
+        \item \textbf{test\_generate\_densepose\_image\_successful}: This test verifies the successful generation of densepose image using detectron2 library. It checks for the existence of the "densepose\_image.png" file, indicating that the densepose image is generated as expected.
+        
+        \item \textbf{test\_run\_AIR\_VITON\_to\_generate\_final\_image\_successful}: This test ensures that AIR-VITON generates the final image successfully. It confirms the existence of the "./static/finalimg.png" file, which should contain the final generated image.
+        
+        \item \textbf{test\_add\_background\_to\_generated\_images\_successful}: This test che-cks if the background is successfully added to the generated images. It mocks the mask image and verifies that each generated image has the correct shape after adding the background.
+        
+        \item \textbf{test\_remove\_background\_from\_generated\_images\_successful}: This t-est verifies the successful removal of the background from generated images. It ensures that the shape of each generated image remains unchanged after the background removal process.
     \end{enumerate}
-  \item \textbf{Expected Outcome}: AIRVTON should display a message prompting the user to upload a file.
-\end{itemize}
 
-\subsection{test\_streamlit\_app\_title}
-\begin{itemize}
-  \item \textbf{Description}: This test case verifies the title of the Streamlit web application.
-  \item \textbf{Steps}:
-    \begin{enumerate}
-      \item Access AIRVTON web application.
-    \end{enumerate}
-  \item \textbf{Expected Outcome}: The title of the web application should be "AIRVTON - Fashion Recommendation and Virtual Try-On".
-\end{itemize}
+    \begin{figure}
+        \includegraphics[width=\textwidth]{components/images/vton_tests.png}
+        \caption{VTON Tests}
+        \label{fig:test-case-vton}
+    \end{figure}
 
-\subsection{test\_save\_file\_path}
-\begin{itemize}
-  \item \textbf{Description}: This test case checks if the file is saved at the specified path.
-  \item \textbf{Steps}:
+    \subsubsection{Cloth Mask Tests}
+
     \begin{enumerate}
-      \item Upload a sample image to AIRVTON.
-      \item Click on the "Save" button to save the image.
+        \item \textbf{test\_model\_output\_is\_mask}: This test verifies that the model output is a binary mask. It loads a pre-trained segmentation model, processes an input image, and ensures that the generated mask contains only binary values (0s and 1s), indicating foreground and background regions.
+        
+        \item \textbf{test\_resized\_image\_has\_correct\_shape}: This test checks if the resized image has the correct dimensions. It compares the dimensions of the resized image with the corresponding segmentation mask and ensures that they have the same height and width. Additionally, if the original image is smaller than certain dimensions, it validates that the resized image is scaled up by a factor of 1.2.
     \end{enumerate}
-  \item \textbf{Expected Outcome}: The uploaded image should be saved at the specified file path on the local system.
-\end{itemize}
-\begin{figure}
-    \includegraphics[width=\textwidth]{components/images/test_case.jpg}
-    \caption{Test Case Snapshot}
-    \label{fig:test-case}
-\end{figure}
+
+    \subsubsection{DensePose Tests}
+
+    \begin{enumerate}
+        \item \textbf{test\_image\_generation\_with\_colormap}: This test validates the correctness of image generation using the provided colormap. It reads JSON data containing segmentation information, applies the colormap to generate the segmented image, and overlays it onto a background image based on bounding box coordinates. Finally, it ensures that the generated image has the expected size.
+    \end{enumerate}
+
+    \subsubsection{PoseNet Tests}
+
+    \begin{enumerate}
+        \item \textbf{test\_pose\_keypoints\_generated\_correctly}: This test verifies if the pose keypoints are generated correctly from the input image using the pose estimation model. It loads an input image, processes it through the pose estimation model, and checks if the generated pose keypoints are of the expected length.
+        
+        \item \textbf{test\_openpose\_json\_generated\_correctly}: This test ensures that the OpenPose JSON file is generated correctly from the pose keypoints. It constructs a JSON object containing pose keypoints and saves it to a file. Then, it checks if the file exists, confirming that the JSON file generation process is successful.
+        
+        \item \textbf{test\_generated\_openpose\_json\_has\_correct\_structure}: This test validates if the generated OpenPose JSON file has the correct structure. It reads the generated JSON file and checks if it contains the expected keys ("version" and "people") and if their values have the correct data types, ensuring the integrity of the JSON structure.
+    \end{enumerate}
